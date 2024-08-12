@@ -13,8 +13,8 @@
             font-family: 'Nunito', 'Noto Color Emoji', sans-serif;
             background-color: #333;
             color: #fff;
-            overflow: hidden; 
-            user-select: none; 
+            overflow: hidden;
+            user-select: none;
         }
         #overlay {
             position: fixed;
@@ -25,25 +25,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgba(0, 0, 0, 1); 
+            background-color: rgba(0, 0, 0, 1);
             color: #fff;
-            font-size: 5vw; 
+            font-size: 5vw;
             text-align: center;
-            z-index: 1000; 
-            overflow: hidden; 
-            transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1); 
+            z-index: 1000;
+            overflow: hidden;
+            transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
         }
         #overlay.hidden {
             opacity: 0;
-            pointer-events: none; 
+            pointer-events: none;
         }
         .typing {
             display: inline-block;
             white-space: nowrap;
             overflow: hidden;
-            border-right: .15em solid orange; 
+            border-right: .15em solid orange;
             animation: blink-caret .75s step-end infinite;
-            font-size: inherit; 
+            font-size: inherit;
         }
         .typing.started {
             animation: typing 2s steps(30, end), blink-caret .75s step-end infinite;
@@ -69,35 +69,60 @@
         main {
             padding: 20px;
         }
-        main img {
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            align-items: start;
+        }
+        .grid-item {
+            background-color: #222;
+            border-radius: 5px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .grid-item img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
-            border-radius: 5px; 
+            border-radius: 5px;
+        }
+        .grid-item h2, .grid-item p {
+            margin: 10px 0 0 0;
+            width: 100%;
+            text-align: center;
         }
         @media (max-width: 768px) {
             header {
-                flex-direction: row; 
-                align-items: center; 
-                justify-content: flex-start; 
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
             }
             header img {
-                margin-bottom: 0; 
-                margin-right: 10px; 
+                margin-bottom: 0;
+                margin-right: 10px;
             }
             header h1 {
-                font-size: 5vw; 
+                font-size: 5vw;
             }
             #overlay {
-                font-size: 6vw; 
+                font-size: 6vw;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .grid-item {
+                margin-bottom: 20px;
             }
         }
     </style>
 </head>
 <body>
     <div id="overlay">
-        <div class="typing" id="text"></div> <!-- Начальное пустое значение -->
+        <div class="typing" id="text"></div>
     </div>
     <header>
         <img src="logo.png" alt="Логотип">
@@ -107,30 +132,64 @@
         <h2>Прежде всего около-ванильный сервер (не требующий модов)</h2>
         <p>"У нас есть голосовой чат, /sit /lay" Такую нудятину можно почитать где угодно, мы же не выпрыгиваем из штанов 😎</p>
         <p>Говоря об особенностях:</p>
-        <h2>Кастомная генерация</h2>
-        <img src="1.webp" alt="Изображение">
-        <p>Конечно же жду критики (большего предложить не могу)</p>
-        <h2>Прогрузка в 32 чанка</h2>
-        <img src="2.webp" alt="Изображение">
-        <p>Ибо ресурсы позволяют</p>
-        <h2>Фишки чата</h2>
-        <img src="3.webp" alt="Изображение">
-        <p>Простая отправка ссылки на фото 👍</p>
-        <p>Дальше мне капец как лень писать сайт</p>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="1.webp" alt="Изображение">
+                <h2>Кастомная генерация</h2>
+                <p>Конечно же жду критики (большего предложить не могу)</p>
+            </div>
+            <div class="grid-item">
+                <img src="2.webp" alt="Изображение">
+                <h2>Прогрузка в 32 чанка</h2>
+                <p>Ибо ресурсы позволяют</p>
+            </div>
+            <div class="grid-item">
+                <img src="3.webp" alt="Изображение">
+                <h2>Фишки чата</h2>
+                <p>Простая отправка ссылки на фото 👍</p>
+            </div>
+            <div class="grid-item">
+                <img src="7.gif" alt="Изображение">
+                <h2>Кальян</h2>
+                <p>Курение вредит здоровью!(Сам не проверял)</p>
+            </div>
+            <div class="grid-item">
+                <img src="4.webp" alt="Изображение">
+                <h2>Ресурс пак</h2>
+                <p>Максимально ванильные улучшения</p>
+            </div>
+            <div class="grid-item">
+                <img src="5.webp" alt="Изображение">
+                <h2>Хардкор</h2>
+                <p>Ники, смерти полностью скрыты, RolePlay?</p>
+            </div>
+            <div class="grid-item">
+                <img src="6.webp" alt="Изображение">
+                <h2>Авто крафтер</h2>
+                <p>Хз зачем его добавили, но этот пункт тут обьязательно должен быть!</p>
+            </div>
+            <div class="grid-item">
+                <img src="8.gif" alt="Изображение">
+                <h2>Улучшенные частицы</h2>
+                <p>Впрочем, подобных улучшений реально много</p>
+            </div>
+        </div>
+    <h1>Ну а всё остальное(но не менее главное) вы можете увидеть на нашем сервере!</h1>
+    <p>На сайт не влезли: Discord srv, Волейбольный мяч(Не тот что у других), %item% в чате, TAB, msg по клику, улучшенный чат, brewery, Грум,  gsit, PlasmoVoice, SkinRestorer, звуки крафтов, анимация появления мобов и т.д</p>
+    <p>Лучше самому посмотреть, на словах не обьяснить</p>
     </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const textElement = document.getElementById('text');
 
             setTimeout(() => {
-
                 textElement.textContent = 'Мы самый уникальный сервер!';
-                textElement.classList.add('started'); 
+                textElement.classList.add('started');
 
                 setTimeout(() => {
                     textElement.style.border = 'none';
                     textElement.textContent = 'Бред';
-                    textElement.style.fontSize = '40vw'; 
+                    textElement.style.fontSize = '40vw';
                     textElement.style.color = 'red';
                     textElement.style.width = '100%';
 
@@ -139,11 +198,11 @@
                     setTimeout(() => {
                         document.getElementById('overlay').classList.add('hidden');
                         setTimeout(() => {
-                            document.body.style.overflow = 'auto'; 
+                            document.body.style.overflow = 'auto';
                         }, 1000);
-                    }, 1500); 
-                }, 4000); 
-            }, 2000); 
+                    }, 1500);
+                }, 4000); //4000
+            }, 2000);
         });
     </script>
 </body>
