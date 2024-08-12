@@ -13,8 +13,8 @@
             font-family: 'Nunito', 'Noto Color Emoji', sans-serif;
             background-color: #333;
             color: #fff;
-            overflow: hidden;
-            user-select: none;
+            overflow: hidden; 
+            user-select: none; 
         }
         #overlay {
             position: fixed;
@@ -25,25 +25,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgba(0, 0, 0, 1);
+            background-color: rgba(0, 0, 0, 1); 
             color: #fff;
-            font-size: 5vw;
+            font-size: 5vw; 
             text-align: center;
-            z-index: 1000;
-            overflow: hidden;
-            transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
+            z-index: 1000; 
+            overflow: hidden; 
+            transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1); 
         }
         #overlay.hidden {
             opacity: 0;
-            pointer-events: none;
+            pointer-events: none; 
         }
         .typing {
             display: inline-block;
             white-space: nowrap;
             overflow: hidden;
-            border-right: .15em solid orange;
+            border-right: .15em solid orange; 
             animation: blink-caret .75s step-end infinite;
-            font-size: inherit;
+            font-size: inherit; 
         }
         .typing.started {
             animation: typing 2s steps(30, end), blink-caret .75s step-end infinite;
@@ -74,30 +74,30 @@
             height: auto;
             display: block;
             object-fit: cover;
-            border-radius: 15px;
+            border-radius: 5px; 
         }
         @media (max-width: 768px) {
             header {
-                flex-direction: row;
-                align-items: center;
-                justify-content: flex-start;
+                flex-direction: row; 
+                align-items: center; 
+                justify-content: flex-start; 
             }
             header img {
-                margin-bottom: 0;
-                margin-right: 10px;
+                margin-bottom: 0; 
+                margin-right: 10px; 
             }
             header h1 {
-                font-size: 5vw;
+                font-size: 5vw; 
             }
             #overlay {
-                font-size: 6vw;
+                font-size: 6vw; 
             }
         }
     </style>
 </head>
 <body>
     <div id="overlay">
-        <div class="typing" id="text"></div>
+        <div class="typing" id="text"></div> <!-- Начальное пустое значение -->
     </div>
     <header>
         <img src="logo.png" alt="Логотип">
@@ -123,13 +123,14 @@
             const textElement = document.getElementById('text');
 
             setTimeout(() => {
+
                 textElement.textContent = 'Мы самый уникальный сервер!';
-                textElement.classList.add('started');
+                textElement.classList.add('started'); 
 
                 setTimeout(() => {
                     textElement.style.border = 'none';
                     textElement.textContent = 'Бред';
-                    textElement.style.fontSize = '40vw';
+                    textElement.style.fontSize = '40vw'; 
                     textElement.style.color = 'red';
                     textElement.style.width = '100%';
 
@@ -138,11 +139,11 @@
                     setTimeout(() => {
                         document.getElementById('overlay').classList.add('hidden');
                         setTimeout(() => {
-                            document.body.style.overflow = 'auto';
+                            document.body.style.overflow = 'auto'; 
                         }, 1000);
-                    }, 1500);
-                }, 4000);
-            }, 2000);
+                    }, 1500); 
+                }, 4000); 
+            }, 2000); 
         });
     </script>
 </body>
