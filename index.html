@@ -61,10 +61,14 @@
             align-items: center;
             padding: 10px 20px;
             background-color: #444;
+            justify-content: space-between;
         }
         header img {
             max-height: 50px;
-            margin-right: 20px;
+        }
+        header .discord-logo {
+            cursor: pointer;
+            margin-left: auto;
         }
         main {
             padding: 20px;
@@ -95,6 +99,16 @@
             width: 100%;
             text-align: center;
         }
+        .content-discord {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .content-text {
+            max-width: 50%;
+            margin-right: 20px;
+        }
         @media (max-width: 768px) {
             header {
                 flex-direction: row;
@@ -117,6 +131,17 @@
             .grid-item {
                 margin-bottom: 20px;
             }
+            .content-discord {
+                flex-direction: column;
+            }
+            .content-text {
+                max-width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            iframe {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -127,6 +152,7 @@
     <header>
         <img src="logo.png" alt="Логотип">
         <h1>ContentLab</h1>
+        <img src="discord.svg" alt="Discord" class="discord-logo" id="scrollToBottom">
     </header>
     <main>
         <h2>Прежде всего около-ванильный сервер (не требующий модов)</h2>
@@ -174,9 +200,14 @@
                 <p>Впрочем, подобных улучшений реально много</p>
             </div>
         </div>
-    <h1>Ну а всё остальное(но не менее главное) вы можете увидеть на нашем сервере!</h1>
-    <p>На сайт не влезли: Discord srv, Волейбольный мяч(Не тот что у других), %item% в чате, TAB, msg по клику, улучшенный чат, brewery, Грум,  gsit, PlasmoVoice, SkinRestorer, звуки крафтов, анимация появления мобов и т.д</p>
-    <p>Лучше самому посмотреть, на словах не обьяснить</p>
+        <div class="content-discord">
+            <div class="content-text">
+                <h1>Ну а всё остальное (но не менее главное) вы можете увидеть на нашем сервере!</h1>
+                <p>На сайт не влезли: Discord srv, Волейбольный мяч (Не тот что у других), %item% в чате, TAB, msg по клику, улучшенный чат, brewery, Грум, gsit, PlasmoVoice, SkinRestorer, звуки крафтов, анимация появления мобов и т.д</p>
+                <p>Лучше самому посмотреть, на словах не обьяснить</p>
+            </div>
+            <iframe src="https://discord.com/widget?id=1267909513592311930&theme=dark" width="500" height="600" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
     </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -199,10 +230,17 @@
                         document.getElementById('overlay').classList.add('hidden');
                         setTimeout(() => {
                             document.body.style.overflow = 'auto';
-                        }, 1000);
-                    }, 1500);
-                }, 4000); //4000
-            }, 2000);
+                        }, 2000);
+                    }, 2000);
+                }, 5000);
+            }, 500);
+        });
+
+        document.getElementById('scrollToBottom').addEventListener('click', function() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
